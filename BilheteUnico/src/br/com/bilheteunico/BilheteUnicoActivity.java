@@ -10,7 +10,7 @@ import br.com.bilheteunico.fragment.TaxasFragment;
 
 public class BilheteUnicoActivity extends Activity {	
 	
-	Tab tab;
+	private Tab tab;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,42 +37,5 @@ public class BilheteUnicoActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	/*
-	@Override
-	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 
-	}
-
-	
-	@SuppressWarnings("unused")
-	@Override
-	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-		Fragment f = null;
-		TabFragment tf = null;
-
-		if (fragList.size() > tab.getPosition())
-				fragList.get(tab.getPosition());
-
-		if (f == null) {
-			tf = new TabFragment();
-			Bundle data = new Bundle();
-			data.putInt("idx",  tab.getPosition());
-			tf.setArguments(data);
-			fragList.add(tf);
-		} else {
-			tf = (TabFragment) f;
-		}
-		
-		ft.replace(android.R.id.content, tf);
-
-	}*/
-/*
-	@Override
-	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-		if (fragList.size() > tab.getPosition()) {
-			ft.remove(fragList.get(tab.getPosition()));
-		}
-
-	}
-	*/
 }

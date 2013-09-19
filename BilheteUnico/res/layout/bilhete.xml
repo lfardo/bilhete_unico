@@ -4,7 +4,35 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical" >
-	
-    
+
+    <TextView
+        android:id="@+id/lblSaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:text="@string/saldo"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/saldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblSaldo"
+        android:layout_centerHorizontal="true"
+        android:text="123,90"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/saldo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"
+        android:text="Button" />
 
 </RelativeLayout>

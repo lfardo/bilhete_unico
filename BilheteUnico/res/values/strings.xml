@@ -3,6 +3,8 @@
 
     <string name="app_name">BilheteUnico</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-
+    
+	<string name="saldo">Saldo:</string>
+    
+    
 </resources>
