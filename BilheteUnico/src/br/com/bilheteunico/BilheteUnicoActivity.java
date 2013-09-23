@@ -11,12 +11,13 @@ import br.com.bilheteunico.fragment.TaxasFragment;
 public class BilheteUnicoActivity extends Activity {	
 	
 	private Tab tab;
+	private Long bilheteId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		ActionBar actionBar = getActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);		
 		
 		tab = actionBar.newTab().setTabListener(new BilheteFragment());
 		tab.setText("Bilhete");
@@ -29,6 +30,15 @@ public class BilheteUnicoActivity extends Activity {
 		tab = actionBar.newTab().setTabListener(new TaxasFragment());
 		tab.setText("Config");
 		actionBar.addTab(tab);
+	}
+	
+	
+	public Long getBilheteId() {
+		return bilheteId;
+	}
+
+	public void setBilheteId(Long bilheteId) {
+		this.bilheteId = bilheteId;
 	}
 
 	@Override

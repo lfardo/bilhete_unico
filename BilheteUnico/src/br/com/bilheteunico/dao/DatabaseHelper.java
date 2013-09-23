@@ -21,13 +21,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	public static class Taxa {
-		public static final String TABELA = "Bilhete";
+		public static final String TABELA = "Taxa";
 		public static final String _ID = "_id";
 		public static final String BILHETE_ID = "bilhete_id";
 		public static final String DSC_TAXA = "dsc_taxa";
 		public static final String VALOR = "valor";
+		public static final String TIPO = "tipo";
 		public static final String[] COLUNAS = new String[]{
-			_ID, BILHETE_ID, DSC_TAXA, VALOR 
+			_ID, BILHETE_ID, DSC_TAXA, VALOR, TIPO
+		};
+	}
+	
+	public static class Movimentacao {
+		public static final String TABELA = "Movimentacao";
+		public static final String _ID = "_id";
+		public static final String BILHETE_ID = "bilhete_id";
+		public static final String TAXA_ID = "taxa_id";
+		public static final String TIPO = "tipo";
+		public static final String VALOR = "valor";
+		public static final String SALDO = "saldo";
+		public static final String DATA = "data";
+		public static final String[] COLUNAS = new String[]{
+			_ID, BILHETE_ID, TAXA_ID, TIPO, VALOR, SALDO, DATA
 		};
 	}
 	
@@ -38,8 +53,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
+		db.execSQL("CREATE TABLE bilhete (" +
+				" _id INTEGER PRIMARY KEY," +
+				" dsc_bilhete TEXT, " +
+				" saldo DOUBLE, " +
+				" ultima_atualizacao DATE);");
 		
+		db.execSQL("CREATE TABLE taxa (" +
+				" _id INTEGER PRIMARY KEY," +
+				" bilhete_id INTEGER, " +
+				" dsc_taxa TEXT, " +
+				" valor DOUBLE," +
+				" tipo INTEGER);");
+		
+		db.execSQL("CREATE TABLE movimentacao (" +
+				" _id INTEGER PRIMARY KEY," +
+				" bilhete_id INTEGER, " +
+				" taxa_id INTEGER, " +
+				" tipo INTEGER, " +
+				" valor  DOUBLE, " +
+				" saldo DOUBLE" +
+				" data DATE);");
+		
+		db.execSQL("INSERT INTO bilhete VALUES (1, 'Bilhete Único', 0.00, date('now'));");
+		db.execSQL("INSERT INTO taxa VALUES (null, 1, 'crédito', 0.00, 1);");
+		db.execSQL("INSERT INTO taxa VALUES (null, 1, 'débito', 0.00, 2);");
 	}
 
 	@Override
